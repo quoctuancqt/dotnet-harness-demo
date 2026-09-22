@@ -18,4 +18,6 @@
 
 ## Memory
 
-- `MEMORY.md` (repo root) is the default place to record architectural and process decisions and their rationale — it's checked into git and visible to the whole team. Read it before proposing changes that might revisit a past decision. Add an entry when you make a non-obvious call; don't duplicate what's already derivable from the code or `.claude/` config.
+- Architectural and process decisions and their rationale live in `docs/decisions/`, one numbered file per decision (`0001-*.md`, `0002-*.md`, ...), checked into git and visible to the whole team. `MEMORY.md` (repo root) is a short index linking to each one — read it before proposing changes that might revisit a past decision.
+- When you make a non-obvious call, add a new `docs/decisions/NNNN-<slug>.md` file (next sequential number) and a one-line entry linking it from `MEMORY.md`. Don't duplicate a decision's content back into `MEMORY.md`, and don't duplicate what's already derivable from the code or `.claude/` config.
+- `MEMORY.md` also keeps a running "Test coverage" list — that's status, not a decision, so update it in place rather than adding a new decision file.
