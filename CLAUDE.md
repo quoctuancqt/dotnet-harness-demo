@@ -15,3 +15,7 @@
 - Do NOT modify `appsettings.Production.json` or any CI configuration without explicit approval.
 - Do NOT delete or weaken existing test assertions to make a failing test pass.
 - When fixing a bug, write or run a reproducing test first.
+
+## Memory
+
+- `MEMORY.md` (repo root) is the default place to record architectural and process decisions and their rationale — it's checked into git and visible to the whole team. Read it before proposing changes that might revisit a past decision. Add an entry when you make a non-obvious call; don't duplicate what's already derivable from the code or `.claude/` config.
