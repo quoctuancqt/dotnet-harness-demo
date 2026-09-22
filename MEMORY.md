@@ -15,4 +15,12 @@ Implemented the automations recommended by `AI Harness Engineering & Claude Code
 ## Test coverage
 
 - `/weatherforecast` has integration test coverage via `WebApplicationFactory<Program>` in `WeatherForecastEndpointTests.cs` (added via the `test-writer` subagent). `Program.cs` carries a `public partial class Program {}` shim to support this.
+- `/register` has integration test coverage in `RegisterEndpointTests.cs` (success path, each validation branch, duplicate-username conflict).
 - `/health` has no dedicated test coverage yet.
+
+## User registration (2026-09-22)
+
+`POST /register` (`Program.cs`) stores users in an in-memory `ConcurrentDictionary` (via a singleton `UserStore`), hashed with PBKDF2 using only built-in `System.Security.Cryptography` APIs — no OAuth provider and no new package dependency, per explicit request to keep it simple.
+
+- **Why**: no database is wired up in this repo yet, and the ask was for a minimal, dependency-free implementation.
+- **Not durable**: registered users are lost on restart. Revisit with real persistence (and a login/auth flow, which doesn't exist yet either) before this is anything but a demo.
